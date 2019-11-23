@@ -1,7 +1,7 @@
 let table_body = document.getElementById('table_body');
 
 document.addEventListener('DOMContentLoaded', async()=>{
-    await fetch('http://localhost:8080/computers')
+    await fetch('https://computersinc.herokuapp.com/computers')
     .then(res => {
         //console.log(res);
         
