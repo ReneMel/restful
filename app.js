@@ -9,6 +9,7 @@ var debug = require('debug')('restful:database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var registerRouter= require('./routes/register')
 
 // Conect to database
 
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGO_URI, {
   });
 
 mongoose.set('debug',process.env.NODE_ENV === 'development');
+
 
 
 
@@ -47,8 +49,16 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+
+
+
+
+//instancias de router
+app.use('/', indexRouter);  
 app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+5
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,5 +75,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
