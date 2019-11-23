@@ -3,7 +3,7 @@ var Post = require('../models/post');
 var debug = require('debug')('blog:post_controller');
 
 module.exports.getOne = (req, res, next) => {
-    console.log('Puta es aqui')
+    //console.log('Puta es aqui')
     console.log(req.params.id);
     
     debug("Search Post", req.params.id);
