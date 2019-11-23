@@ -5,8 +5,10 @@ let memoria = document.getElementById('Memoria')
 let precio = document.getElementById('Precop')
 let tipo = document.getElementById('tipo')
 let so = document.getElementById('sistema_operativo')
-/*let borrar;
+let borrar;
 
+
+/*
 borrar.addEventListener('click', async event=>{
     event.preventDefault();
     
@@ -102,8 +104,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
             <td class='align-middle'>${data[i].Sistema_Operativo}</td>
             <td class='align-middle' style='color: red'>
             
-            a( href="/computers/${data[i].modelo}" class="btn btn-primary" id='delete')='Actualizar'
-   
+            <a href="/computers/${data[i].modelo}" class="btn btn-primary" id='delete'>Delete</a>
+            
             
             </td>`;  
         table_body.appendChild(new_row);
