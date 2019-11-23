@@ -15,7 +15,7 @@ var post = require('./routes/post')
 
 // Conect to database
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://renemel:renemel@computadoras-71jel.mongodb.net/test?retryWrites=true&w=majority', {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true 
