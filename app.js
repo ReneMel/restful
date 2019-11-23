@@ -8,9 +8,10 @@ var mongoose = require('mongoose');
 var debug = require('debug')('restful:database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var CompRouter = require('./routes/users');
 var registerRouter= require('./routes/register')
 var seeUsers = require('./routes/SeeUser')
+var post = require('./routes/post')
 
 // Conect to database
 
@@ -56,9 +57,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //instancias de router
 app.use('/', indexRouter);  
-app.use('/computers', usersRouter);
+app.use('/computers', CompRouter);
 app.use('/register', registerRouter);
 app.use('/watch', seeUsers )
+app.use('/post', post)
 
 
 // catch 404 and forward to error handler

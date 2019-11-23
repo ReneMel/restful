@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var postController = require('../controllers/postController');
-var userController= require('../controllers/usersController')
+var userController= require('../controllers/computerController')
 
 
 router.get('/', function(req, res, next) {

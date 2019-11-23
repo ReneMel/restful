@@ -1,4 +1,4 @@
-var user = require('../models/Computer');
+    var user = require('../models/Computer');
 var debug = require('debug')('restful:user_controller');
 
 const getOne = (req,res,next)=>{
@@ -63,11 +63,12 @@ const register = (req,res,next)=>{
     })
     .then(user=>{
         return res
-        .header('Location','/users/' + user._id)
-        .status(201)
-        .json({
+        .header('Location','/computers/' + user._id)
+        .redirect('/watch')
+       /* .json({
             username: user.Modelo
-        });
+        });*/
+
         console.log('registrado!!!');
         
     })

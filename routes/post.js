@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var postController = require('../controllers/PostController');
+var postController = require('../controllers/postController');
 
 
 router.get("/search/:search", postController.find);
