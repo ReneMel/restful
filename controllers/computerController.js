@@ -1,21 +1,23 @@
     var user = require('../models/Computer');
 var debug = require('debug')('restful:user_controller');
 
-const getOne = (req,res,next)=>{
-    debug('Search User', req.params);
+const getOne = (req, res, next) => {
+    debug("Search cpu", req.params);
+    console.log(req.params.Modelo);
+    
     user.findOne({
-        Marca: req.params.marca
-    }, '-password -login_count')
-    .then(foundUser=>{
-        if (foundUser) {
-            return res.status(200).json(foundUser);
-        } else {
-            return res.status(400).json(null);
-        }
-    })
-    .catch(err=>{
-        next(err);
-    });
+            Modelo: req.params.Modelo
+        }, " -login_count")
+        .then((foundUser) => {
+            debug("Found User", foundUser);
+            if (foundUser)
+                return res.status(200).json(foundUser);
+            else
+                return res.status(400).json(null)
+        })
+        .catch(err => {
+            next(err);
+        });
 }
 
 const getAll = (req,res,next)=>{
@@ -48,7 +50,7 @@ const register = (req,res,next)=>{
     .then(foundUser=>{
         if (foundUser) {
             debug("Usuario duplicado");
-            throw new Error(`Usuario duplicado ${req.body.username}`);
+            throw new Error(`Usuario duplicado ${req.body.modelo}`);
         } else {
             let newUser = new user({
                 Marca: req.body.marca,
@@ -64,7 +66,7 @@ const register = (req,res,next)=>{
     .then(user=>{
         return res
         .header('Location','/computers/' + user._id)
-        .redirect('/watch')
+        .redirect('/')
        /* .json({
             username: user.Modelo
         });*/
@@ -104,14 +106,16 @@ const update = (req,res,next)=>{
     });
 }
 
-const deleteUser = (req, res, next) => {
-    debug("Delete user", {
-        username: req.params.username,
+const Delete = (req, res, next) => {
+    debug("Delete Computer", {
+        Modelo: req.params.Modelo,
     });
 
-    user.findOneAndDelete({username: req.params.username})
+    user.findOneAndDelete({Modelo: req.params.Modelo})
     .then((data) =>{
         if (data) {
+            console.log('Se elimino!!!!!!!!!!!!');
+            
             res.status(200).json(data);
         }
         else {
@@ -122,4 +126,4 @@ const deleteUser = (req, res, next) => {
     })
 }
 
-module.exports = {getOne,getAll,register,update,deleteUser}; 
+module.exports = {getOne,getAll,register,update,Delete}; 

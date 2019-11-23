@@ -3,6 +3,7 @@ var Post = require('../models/post');
 var debug = require('debug')('blog:post_controller');
 
 module.exports.getOne = (req, res, next) => {
+    console.log('Puta es aqui')
     console.log(req.params.id);
     
     debug("Search Post", req.params.id);
@@ -99,6 +100,8 @@ module.exports.find = (req, res, next) => {
         .skip(perPage * page)
         .then((posts) => {
             debug("Count post", posts.length);
+            //console.log(res);
+            
             return res.status(200).json(posts)
         }).catch(err => {
             next(err);

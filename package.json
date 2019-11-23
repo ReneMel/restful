@@ -13,6 +13,7 @@
     "mongodb": "^3.3.4",
     "mongoose": "^5.7.12",
     "morgan": "~1.9.1",
+    "node-laravel": "^0.9.6",
     "node-sass-middleware": "0.11.0",
     "pug": "^2.0.4"
   },

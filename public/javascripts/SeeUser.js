@@ -27,7 +27,11 @@ document.addEventListener('DOMContentLoaded', async()=>{
             <td class='align-middle'>${data[i].precio}</td>
             <td class='align-middle'>${data[i].tipo}</td>
             <td class='align-middle'>${data[i].Sistema_Operativo}</td>
-            <td class='align-middle' style='color: red'>Eliminar</td>
+            <td class='align-middle' style='color: red'>
+            <form method="DELETE" action='computers/${data[i].Modelo}' class="form-inline my-2 my-lg-0>
+                 <input type="submit" class="btn btn-primary btn-block"> Eliminar
+            </form>
+            
             </td>`;  
         table_body.appendChild(new_row);
       }

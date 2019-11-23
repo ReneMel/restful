@@ -5,23 +5,20 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
         link(rel="stylesheet" href="/stylesheets/adminSeeUser.css")
-        title Usuarios
+        title Computadoras
     body
         nav(class="navbar navbar-expand-lg navbar-light bg-light")
             button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
                 span(class="navbar-toggler-icon")
-            div(class="collapse navbar-collapse" id="navbarSupportedContent")
-                ul(class="navbar-nav mr-auto")
-                    li(class="nav-item active"): a(class="nav-link" href="#")='Reservas'
-                    li(class="nav-item active"): a(class="nav-link" href="#")='Reportes'
-                    li(class="nav-item active"): a(class="nav-link" href="users/fillAdvanced" data-toggle='modal' data-target='#advancedModal' id='advancedBtn')='Búsqueda Avanzada'
-                form(method='get' action='post/search' class="form-inline my-2 my-lg-0")
-                    div(class="input-group mb-3")
+            div(class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent")
+                form(method='get' action='computers/search/:Modelo' class="form-inline my-2 my-lg-0")
+                    div(class="input-group mb-3 ")
                         input(input type="text" class="form-control" placeholder="Search" id='searchIn')
                         div(class="input-group-append")
                             button(class="btn btn-outline-success my-2 my-sm-0" type='submit' id='searchBtn')='Buscar'
                             button(type="button" class="btn btn-outline-danger my-2 my-sm-0" id='cancelBtn')='Cancelar'
-        br
+                a(href="/register") Agregar Nueva Pc
+            br
         div(class='container justify-content-center ')
             section(class="justify-content-center")
                 table(class="table table-hover table-responsive text-center justify-content-center")
