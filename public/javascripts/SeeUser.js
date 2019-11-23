@@ -5,7 +5,7 @@ let memoria = document.getElementById('Memoria')
 let precio = document.getElementById('Precop')
 let tipo = document.getElementById('tipo')
 let so = document.getElementById('sistema_operativo')
-let borrar;
+/*let borrar;
 
 borrar.addEventListener('click', async event=>{
     event.preventDefault();
@@ -42,7 +42,7 @@ borrar.addEventListener('click', async event=>{
         console.log(err);
     });
 });
-
+*/
 
 
 editBtn.addEventListener('click', async event=>{
