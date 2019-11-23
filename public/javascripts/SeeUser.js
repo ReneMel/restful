@@ -1,7 +1,7 @@
 let table_body = document.getElementById('table_body');
 
 document.addEventListener('DOMContentLoaded', async()=>{
-    await fetch('http://localhost:3000/computers')
+    await fetch('http://localhost:8080/computers')
     .then(res => {
         //console.log(res);
         
