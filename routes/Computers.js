@@ -5,7 +5,7 @@ var computerController = require('../controllers/computerController')
 
 /* GET users listing. */
 router.get('/', computerController.getAll);
-router.get('/search/:Modelo', computerController.getOne);
+router.get('/:Modelo', computerController.getOne);
 
 router.post('/',computerController.register);
 router.put('/:Modelo', computerController.update);
