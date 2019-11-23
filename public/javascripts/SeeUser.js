@@ -51,9 +51,9 @@ editBtn.addEventListener('click', async event=>{
     event.preventDefault();
     
 
-    await fetch(`http://localhost:3000/computers/${modelo.value}`,
+    await fetch(`https://computersinc.herokuapp.com/computers/${modelo.value}`,
     {
-        method: 'DELETE',
+        method: 'PUT',
         headers: {'Content-type': 'application/json; charset=UTF-8'},
         body: JSON.stringify({
             Marca: marca.value,
@@ -68,6 +68,7 @@ editBtn.addEventListener('click', async event=>{
         return res.json();
     })
     .then(data=>{
+        
         console.log(data);
     })
     .catch(err=>{
