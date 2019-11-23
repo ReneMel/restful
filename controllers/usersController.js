@@ -4,7 +4,7 @@ var debug = require('debug')('restful:user_controller');
 const getOne = (req,res,next)=>{
     debug('Search User', req.params);
     user.findOne({
-        username: req.params.username
+        Marca: req.params.marca
     }, '-password -login_count')
     .then(foundUser=>{
         if (foundUser) {
@@ -43,7 +43,7 @@ const register = (req,res,next)=>{
     debug("New user: ", {body: req.body});
 
     user.findOne({
-        username: req.body.username
+        Marca: req.body.username
     }, "-password -login_count")
     .then(foundUser=>{
         if (foundUser) {
@@ -51,11 +51,11 @@ const register = (req,res,next)=>{
             throw new Error(`Usuario duplicado ${req.body.username}`);
         } else {
             let newUser = new user({
-                username: req.body.username,
-                first_name: req.body.first_name || "",
-                last_name: req.body.last_name || "",
-                email: req.body.email,
-                password: req.body.password
+                Marca: req.body.marca,
+                Memoria: req.body.memoria || "",
+                precio: req.body.precio || "",
+                tipo: req.body.tipo,
+                Sistema_Operativo: req.body.sistema_operativo
             });
             return newUser.save();
         }
@@ -107,7 +107,7 @@ const deleteUser = (req, res, next) => {
         username: req.params.username,
     });
 
-    User.findOneAndDelete({username: req.params.username})
+    user.findOneAndDelete({username: req.params.username})
     .then((data) =>{
         if (data) {
             res.status(200).json(data);

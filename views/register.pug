@@ -12,18 +12,20 @@ html(lang="en")
             br
             div(class='login-form input-group mb-3 text-center justify-content-center border border-primary')           
                 form(action='register/create' method='POST')
-                    h2(class="text-center") Registrarse
+                    h2(class="text-center") Registrar PC
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="Username" required="required" name='username')
+                        input(type="text" class="form-control" placeholder="Marca" required="required" name='marca')
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="First name" required="required" name='firs_name')
+                        input(type="text" class="form-control" placeholder="memoria" required="required" name='memoria')
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="Last name" required="required" name='last_name')
+                        input(type="text" class="form-control" placeholder="precio" required="required" name='precio')
                     div(class="form-group")
-                        input(type="email" class="form-control" placeholder="@example.com" required="required" name='email')
+                        select(name="tipo" class= "form-control")
+                            option(value="Escritorio") Escritorio
+                            option(value="Laptop") Laptop
                     div(class="form-group")
-                        input(type="password" class="form-control" placeholder="password" required="required" name='password')
-                        small(id="emailHelp" class="form-text text-muted") No uses "contraseña", piensa un poco
+                        input(type="text" class="form-control" placeholder="Sistema Operativo" required="required" name='sistema_operativo')
+                        small(id="emailHelp" class="form-text text-muted") #GNU
                     div(class="form-group")
                         button(type="submit" class="btn btn-primary btn-block")='Create'
 

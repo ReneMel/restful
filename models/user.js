@@ -2,22 +2,22 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var UserSchema = Schema({
-    username: {
+    Marca: {
         type: String,
         required: true,
-       unique:true
+        unique:false
     },
-    first_name: String,
-    last_name: String,
-    email: {
+    Memoria: String,
+    precio: String,
+    tipo: {
         type: String,
         required: true
     },
-    password: {
+    Sistema_Operativo: {
         type: String,
         required: true
     },
-    login_count: Number
+    comp_count: Number
 }, {
     timestamps: true
 });
