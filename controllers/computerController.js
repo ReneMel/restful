@@ -80,8 +80,8 @@ const register = (req,res,next)=>{
 }
 
 const update = (req,res,next)=>{
-    debug("Update user: ", {
-        username: req.params.username,
+    debug("Update cpu: ", {
+        Modelo: req.params.Modelo,
         ...req.body
     })
     let update = {
@@ -89,7 +89,7 @@ const update = (req,res,next)=>{
     }
 
     user.findOneAndUpdate({
-        username: req.params.username
+        Modelo: req.params.Modelo
     }, update, {
         new: true
     })
