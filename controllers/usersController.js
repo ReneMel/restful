@@ -1,4 +1,4 @@
-var user = require('../models/user');
+var user = require('../models/Computer');
 var debug = require('debug')('restful:user_controller');
 
 const getOne = (req,res,next)=>{
@@ -43,7 +43,7 @@ const register = (req,res,next)=>{
     debug("New user: ", {body: req.body});
 
     user.findOne({
-        Marca: req.body.username
+        Modelo: req.body.modelo
     }, "-password -login_count")
     .then(foundUser=>{
         if (foundUser) {
@@ -52,6 +52,7 @@ const register = (req,res,next)=>{
         } else {
             let newUser = new user({
                 Marca: req.body.marca,
+                Modelo: req.body.modelo,
                 Memoria: req.body.memoria || "",
                 precio: req.body.precio || "",
                 tipo: req.body.tipo,
@@ -65,7 +66,7 @@ const register = (req,res,next)=>{
         .header('Location','/users/' + user._id)
         .status(201)
         .json({
-            username: user.username
+            username: user.Modelo
         });
         console.log('registrado!!!');
         

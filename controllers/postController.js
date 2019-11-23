@@ -1,4 +1,4 @@
-var User = require('../models/user');
+var User = require('../models/Computer');
 var Post = require('../models/post');
 var debug = require('debug')('blog:post_controller');
 

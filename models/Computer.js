@@ -1,11 +1,16 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var UserSchema = Schema({
+var ComputerSchema = Schema({
     Marca: {
         type: String,
         required: true,
         unique:false
+    },
+    Modelo:{
+        type: String, 
+        required: true,
+        unique: true
     },
     Memoria: String,
     precio: String,
@@ -22,4 +27,4 @@ var UserSchema = Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Computer", ComputerSchema);

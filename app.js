@@ -10,6 +10,7 @@ var debug = require('debug')('restful:database');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registerRouter= require('./routes/register')
+var seeUsers = require('./routes/SeeUser')
 
 // Conect to database
 
@@ -55,9 +56,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //instancias de router
 app.use('/', indexRouter);  
-app.use('/users', usersRouter);
+app.use('/computers', usersRouter);
 app.use('/register', registerRouter);
-5
+app.use('/watch', seeUsers )
 
 
 // catch 404 and forward to error handler
