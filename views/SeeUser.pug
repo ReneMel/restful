@@ -40,26 +40,26 @@ html(lang="en")
                         h5(class="modal-title" id="userCarnet") Actualizar
                         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                             span(aria-hidden="true") &times;
-                    form(action="/computers/:modelo" method="put")
+                    form(action="/computers/:Modelo"  method="put")
                         div(class="modal-body")
                             div(class="form-group")
-                                input(type="text" class="form-control" placeholder="Marca" required="required" name='marca')
+                                input(type="text" class="form-control" id="marca" placeholder="Marca" required="required" name='marca')
                             div(class="form-group")
-                                input(type="text" class="form-control" placeholder="Modelo" required="required" name='modelo')
+                                input(type="text" class="form-control" id="Modelo" placeholder="Modelo" required="required" name='modelo')
                             div(class="form-group")
-                                input(type="text" class="form-control" placeholder="memoria" required="required" name='memoria')
+                                input(type="text" class="form-control" id="Memoria" placeholder="memoria" required="required" name='memoria')
                             div(class="form-group")
-                                input(type="text" class="form-control" placeholder="precio" required="required" name='precio')
+                                input(type="text" class="form-control" id="Precop" placeholder="precio" required="required" name='precio')
                             div(class="form-group")
-                            select(name="tipo" class= "form-control")
+                            select(name="tipo"  id ="tipo" class= "form-control")
                                 option(value="Escritorio") Escritorio
                                 option(value="Laptop") Laptop
                             div(class="form-group")
-                                input(type="text" class="form-control" placeholder="Sistema Operativo" required="required" name='sistema_operativo')
+                                input(type="text" class="form-control" placeholder="Sistema Operativo" required="required" name='sistema_operativo' id='sistema_operativo')
                                 small(id="emailHelp" class="form-text text-muted") #GNU
                         div(class="modal-footer")
                             button(class="btn btn-secondary" data-dismiss="modal" id='closeBtn')='Cerrar'
-                            a(href='computers/' class="btn btn-primary" id='editBtn')='Guardar'                     
+                            a( href="/computers/:Modal" class="btn btn-primary" id='editBtn')='Actualizar'                     
         //- advancedModal
         div(class="modal fade" id="advancedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")    
             div(class="modal-dialog modal-dialog-centered" role="document")

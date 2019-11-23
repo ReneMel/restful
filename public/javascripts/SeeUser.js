@@ -1,4 +1,79 @@
 let table_body = document.getElementById('table_body');
+let marca = document.getElementById('marca')
+let modelo = document.getElementById('Modelo')
+let memoria = document.getElementById('Memoria')
+let precio = document.getElementById('Precop')
+let tipo = document.getElementById('tipo')
+let so = document.getElementById('sistema_operativo')
+let borrar;
+
+
+/*
+borrar.addEventListener('click', async event=>{
+    event.preventDefault();
+    
+    await fetch(`http://localhost:3000/computers/${modelo.value}`,
+    {
+        method: 'PUT',
+        headers: {'Content-type': 'application/json; charset=UTF-8'},
+        body: JSON.stringify({
+            Marca: marca.value,
+            Modelo: modelo.value,
+            Memoria: memoria.value,
+            precio: precio.value,
+            tipo: tipo.value,
+            Sistema_Operativo: so.value  
+        })
+    })
+    .then(res=>{
+        return res.json();
+    })
+    .then(data=>{
+        console.log(data);
+        data.map((object,index)=>{
+             marca.value= object.Marca
+             userPass.value= object.Modelo
+             memoria.value= object.Memoria
+             precio.value= object.precio
+             tipo.value= object.tipo
+             so.valu= object.Sistema_Operativo
+            
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+});
+*/
+
+
+editBtn.addEventListener('click', async event=>{
+    event.preventDefault();
+    
+
+    await fetch(`http://localhost:3000/computers/${modelo.value}`,
+    {
+        method: 'DELETE',
+        headers: {'Content-type': 'application/json; charset=UTF-8'},
+        body: JSON.stringify({
+            Marca: marca.value,
+            Modelo: modelo.value,
+            Memoria: memoria.value,
+            precio: precio.value,
+            tipo: tipo.value,
+            Sistema_Operativo: so.value  
+        })
+    })
+    .then(res=>{
+        return res.json();
+    })
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+});
 
 document.addEventListener('DOMContentLoaded', async()=>{
     await fetch('https://computersinc.herokuapp.com/computers')
@@ -29,13 +104,12 @@ document.addEventListener('DOMContentLoaded', async()=>{
             <td class='align-middle'>${data[i].Sistema_Operativo}</td>
             <td class='align-middle' style='color: red'>
             
-            <form action="/computers/${data[i].Modelo}"  method="delete">
-            <input type="submit" value="Submit">
-            </form> 
-   
+            <a href="/computers/${data[i].modelo}" class="btn btn-primary" id='delete'>Delete</a>
+            
             
             </td>`;  
         table_body.appendChild(new_row);
       }
   })
+
 })
