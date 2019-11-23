@@ -5,11 +5,11 @@ let memoria = document.getElementById('Memoria')
 let precio = document.getElementById('Precop')
 let tipo = document.getElementById('tipo')
 let so = document.getElementById('sistema_operativo')
+let borrar;
 
-editBtn.addEventListener('click', async event=>{
+borrar.addEventListener('click', async event=>{
     event.preventDefault();
     
-
     await fetch(`http://localhost:3000/computers/${modelo.value}`,
     {
         method: 'PUT',
@@ -37,6 +37,36 @@ editBtn.addEventListener('click', async event=>{
              so.valu= object.Sistema_Operativo
             
         })
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+});
+
+
+
+editBtn.addEventListener('click', async event=>{
+    event.preventDefault();
+    
+
+    await fetch(`http://localhost:3000/computers/${modelo.value}`,
+    {
+        method: 'DELETE',
+        headers: {'Content-type': 'application/json; charset=UTF-8'},
+        body: JSON.stringify({
+            Marca: marca.value,
+            Modelo: modelo.value,
+            Memoria: memoria.value,
+            precio: precio.value,
+            tipo: tipo.value,
+            Sistema_Operativo: so.value  
+        })
+    })
+    .then(res=>{
+        return res.json();
+    })
+    .then(data=>{
+        console.log(data);
     })
     .catch(err=>{
         console.log(err);
@@ -72,13 +102,12 @@ document.addEventListener('DOMContentLoaded', async()=>{
             <td class='align-middle'>${data[i].Sistema_Operativo}</td>
             <td class='align-middle' style='color: red'>
             
-            <form action="/computers/${data[i].Modelo}"  method="delete">
-            <input class="tn btn-danger"  type="submit" value="Eliminar">
-            </form> 
+            a( href="/computers/${data[i].modelo}" class="btn btn-primary" id='delete')='Actualizar'
    
             
             </td>`;  
         table_body.appendChild(new_row);
       }
   })
+
 })
